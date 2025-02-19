@@ -1,6 +1,6 @@
 <script setup>
-import HeaderNav from "@/component/HeaderNav.vue";
-import SideBar from "@/component/SideBar.vue";
+import HeaderNav from "@/components/HeaderNav.vue";
+import SideBar from "@/components/Sidebar/SideBar.vue";
 import { IonPage, IonContent } from "@ionic/vue";
 import { ref } from "vue";
 import { RouterView } from "vue-router";
@@ -10,7 +10,7 @@ const isNavOpen = ref(false);
 
 <template>
   <ion-page
-    class="max-w-[480px] max-h-auto sm:max-h-[850px] mx-auto mt-0 sm:mt-14 relative overflow-hidden"
+    class="max-w-[420px] max-h-auto sm:max-h-[850px] mx-auto mt-0 sm:mt-14 relative overflow-hidden text-black"
   >
     <div
       class="bg-black w-full h-full absolute z-10 transition-all duration-400 ease-in-out"
