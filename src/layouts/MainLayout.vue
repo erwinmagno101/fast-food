@@ -13,10 +13,10 @@ const isNavOpen = ref(false);
     class="max-w-[420px] max-h-auto sm:max-h-[850px] mx-auto mt-0 sm:mt-14 relative overflow-hidden text-black"
   >
     <div
-      class="bg-black w-full h-full absolute z-10 transition-all duration-400 ease-in-out"
+      class="bg-gray-900 w-full h-full absolute z-10 transition-all duration-400 ease-in-out"
       :class="[
         isNavOpen
-          ? 'translate-x-[80%] opacity-40 pointer-events-auto'
+          ? 'translate-x-[80%] opacity-30 pointer-events-auto'
           : 'translate-x-[0%] opacity-0 pointer-events-none',
       ]"
       @click="isNavOpen = !isNavOpen"

@@ -1,6 +1,8 @@
 <script setup>
 import { watch } from "vue";
 import ProfileSection from "./ProfileSection.vue";
+import NavigationSection from "./NavigationSection.vue";
+import PrimaryBtn from "../PrimaryBtn.vue";
 
 const isOpen = defineModel({});
 
@@ -18,8 +20,12 @@ watch(
     :class="[isOpen ? 'translate-x-[0%]' : 'translate-x-[-100%]']"
   >
     <nav class="w-full max-w-[384px] h-full z-10 p-5 flex flex-col bg-white">
-      <div>
+      <div class="flex flex-col h-full">
         <ProfileSection />
+        <NavigationSection />
+        <div class="mt-auto w-[60%]">
+          <PrimaryBtn> Logout </PrimaryBtn>
+        </div>
       </div>
     </nav>
   </div>

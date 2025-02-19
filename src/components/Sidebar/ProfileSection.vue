@@ -1,9 +1,9 @@
 <script setup>
-import { UserIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 </script>
 
 <template>
-  <div>
+  <div class="py-3 pt-2">
     <div class="flex gap-5 mb-2">
       <div class="border rounded-full w-18 h-18 overflow-hidden">
         <img
