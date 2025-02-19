@@ -1,11 +1,23 @@
 <script setup>
+import { useRouter } from "vue-router";
+import { useSideBarStore } from "@/composables/sidebarstore";
+
+const router = useRouter();
+const sidebarStore = useSideBarStore();
+
 const props = defineProps({
   data: Object,
 });
+
+const navigate = () => {
+  if (!props.data.route) return;
+  router.push({ name: props.data.route });
+  sidebarStore.closeSideBar();
+};
 </script>
 
 <template>
-  <div class="flex gap-5 py-3">
+  <div class="flex gap-5 py-3" @click="navigate">
     <component
       :is="data.icon"
       class="w-6"

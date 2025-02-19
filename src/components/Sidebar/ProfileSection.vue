@@ -41,7 +41,7 @@ import { ChevronRightIcon } from "@heroicons/vue/24/solid";
           </g>
         </svg>
         <div class="flex items-center gap-3">
-          <div>0 points</div>
+          <div class="font-medium">0 Points</div>
           <ChevronRightIcon class="w-4 text-red-600" />
         </div>
       </div>
