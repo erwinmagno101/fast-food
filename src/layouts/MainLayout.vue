@@ -6,19 +6,18 @@ import {
   IonTitle,
   IonContent,
 } from "@ionic/vue";
-import { RouterView } from "vue-router"; // Import RouterView
+import { RouterView } from "vue-router";
 </script>
 
 <template>
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>My App</ion-title>
+        <ion-title>MY App</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <router-view></router-view>
-      <!-- This is required to render HomePage -->
     </ion-content>
   </ion-page>
 </template>
