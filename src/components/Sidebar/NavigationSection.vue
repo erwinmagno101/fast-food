@@ -91,7 +91,7 @@ const navProfileData = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 py-3">
+  <div class="flex flex-col gap-5">
     <div>
       <NavigationItem
         v-for="data in navAppData"

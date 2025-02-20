@@ -1,41 +1,44 @@
 <script setup>
-import HeaderNav from "@/components/HeaderNav.vue";
-import SideBar from "@/components/Sidebar/SideBar.vue";
-import { IonPage, IonContent, IonHeader, IonToolbar } from "@ionic/vue";
-import { ref } from "vue";
+import {
+  IonPage,
+  IonContent,
+  IonHeader,
+  IonToolbar,
+  IonMenu,
+  IonMenuButton,
+  IonButtons,
+} from "@ionic/vue";
 import { RouterView } from "vue-router";
-import { useSideBarStore } from "@/composables/sidebarstore";
-
-const sidebarStore = useSideBarStore();
+import ProfileSection from "@/components/Sidebar/ProfileSection.vue";
+import NavigationSection from "@/components/Sidebar/NavigationSection.vue";
+import PrimaryBtn from "@/components/PrimaryBtn.vue";
 </script>
 
 <template>
-  <ion-page
-    class="max-w-[420px] max-h-auto sm:max-h-[850px] mx-auto mt-0 sm:mt-14 relative overflow-x-hidden overflow-y-auto text-black"
-  >
-    <div
-      class="bg-gray-900 w-full h-full absolute z-10 transition-all duration-400 ease-in-out"
-      :class="[
-        sidebarStore.isOpen
-          ? 'translate-x-[80%] opacity-30 pointer-events-auto'
-          : 'translate-x-[0%] opacity-0 pointer-events-none',
-      ]"
-      @click="sidebarStore.closeSideBar"
-    ></div>
-    <SideBar />
-
-    <ion-content
-      class="transition-transform duration-400 ease-in-out"
-      :class="[sidebarStore.isOpen ? 'translate-x-[80%]' : 'translate-x-[0%]']"
-    >
-      <ion-header>
-        <ion-toolbar>
-          <HeaderNav />
-        </ion-toolbar>
-      </ion-header>
-      <div class="px-3 pb-5 pt-2">
-        <router-view></router-view>
+  <ion-menu type="push" content-id="main-content">
+    <ion-header class="ion-padding">
+      <ion-toolbar>
+        <ProfileSection />
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="h-full display flex flex-col">
+        <NavigationSection />
+        <div class="mt-auto w-[60%]">
+          <PrimaryBtn> Logout </PrimaryBtn>
+        </div>
       </div>
     </ion-content>
+  </ion-menu>
+  <ion-page id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ProfileSection location="header" class="px-5" />
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"> <router-view></router-view> </ion-content>
   </ion-page>
 </template>

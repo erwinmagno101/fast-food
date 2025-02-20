@@ -1,11 +1,24 @@
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
+
+const props = defineProps({
+  location: {
+    type: String,
+    default: "nav",
+  },
+});
 </script>
 
 <template>
-  <div class="py-3 pt-2">
-    <div class="flex gap-5 mb-2">
-      <div class="border rounded-full w-18 h-18 overflow-hidden">
+  <div>
+    <div
+      class="flex gap-5 mb-2"
+      :class="{ 'flex-row-reverse': location !== 'nav' }"
+    >
+      <div
+        class="border rounded-full w overflow-hidden"
+        :class="[location !== 'nav' ? 'w-10 h-10' : 'w-18 h-18']"
+      >
         <img
           src="/src/assets/images/profile.webp"
           class="w-full object-cover"
@@ -46,7 +59,9 @@ import { ChevronRightIcon } from "@heroicons/vue/24/solid";
         </div>
       </div>
     </div>
-    <div class="text-3xl font-medium">Chou Tzuyu</div>
-    <div class="text-gray-400">+63 912 345 6789</div>
+    <div v-if="location === 'nav'">
+      <div class="text-3xl font-medium">Chou Tzuyu</div>
+      <div class="text-gray-400">+63 912 345 6789</div>
+    </div>
   </div>
 </template>

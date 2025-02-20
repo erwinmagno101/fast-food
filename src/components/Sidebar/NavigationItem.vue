@@ -1,9 +1,11 @@
 <script setup>
 import { useRouter } from "vue-router";
+import { menuController } from "@ionic/vue";
 import { useSideBarStore } from "@/composables/sidebarstore";
 
+const sidebarstore = useSideBarStore();
+
 const router = useRouter();
-const sidebarStore = useSideBarStore();
 
 const props = defineProps({
   data: Object,
@@ -12,7 +14,8 @@ const props = defineProps({
 const navigate = () => {
   if (!props.data.route) return;
   router.push({ name: props.data.route });
-  sidebarStore.closeSideBar();
+  sidebarstore.setNavOpenTitle(props.data.title);
+  menuController.close();
 };
 </script>
 
@@ -21,7 +24,11 @@ const navigate = () => {
     <component
       :is="data.icon"
       class="w-6"
-      :class="[data.isActive ? 'text-red-600' : 'text-gray-300']"
+      :class="[
+        sidebarstore.navOpenTitle === data.title
+          ? 'text-red-600'
+          : 'text-gray-300',
+      ]"
     />
     <div class="flex-1 font-medium">{{ data.title }}</div>
     <div

@@ -22,5 +22,5 @@ ion-header {
 }
 
 ion-toolbar {
-  box-shadow: none;
+  position: relative !important;
 }
