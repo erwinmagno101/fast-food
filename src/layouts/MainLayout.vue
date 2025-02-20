@@ -1,7 +1,7 @@
 <script setup>
 import HeaderNav from "@/components/HeaderNav.vue";
 import SideBar from "@/components/Sidebar/SideBar.vue";
-import { IonPage, IonContent } from "@ionic/vue";
+import { IonPage, IonContent, IonHeader, IonToolbar } from "@ionic/vue";
 import { ref } from "vue";
 import { RouterView } from "vue-router";
 import { useSideBarStore } from "@/composables/sidebarstore";
@@ -23,15 +23,16 @@ const sidebarStore = useSideBarStore();
       @click="sidebarStore.closeSideBar"
     ></div>
     <SideBar />
-    <HeaderNav
-      class="transition-transform duration-400 ease-in-out"
-      :class="[sidebarStore.isOpen ? 'translate-x-[80%]' : 'translate-x-[0%]']"
-    />
 
     <ion-content
       class="transition-transform duration-400 ease-in-out"
       :class="[sidebarStore.isOpen ? 'translate-x-[80%]' : 'translate-x-[0%]']"
     >
+      <ion-header>
+        <ion-toolbar>
+          <HeaderNav />
+        </ion-toolbar>
+      </ion-header>
       <div class="px-3 pb-5 pt-2">
         <router-view></router-view>
       </div>

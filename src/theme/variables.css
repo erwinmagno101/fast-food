@@ -16,3 +16,11 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+ion-header {
+  box-shadow: none !important;
+}
+
+ion-toolbar {
+  box-shadow: none;
+}

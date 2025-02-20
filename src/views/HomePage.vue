@@ -5,5 +5,5 @@ defineOptions({ layout: MainLayout });
 </script>
 
 <template>
-  <div>Homeasdasd</div>
+  <div class="h-[200vh]">Homeasdasd</div>
 </template>

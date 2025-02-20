@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import NavigationItem from "./NavigationItem.vue";
 import {
   HomeIcon,

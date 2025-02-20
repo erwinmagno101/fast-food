@@ -5,7 +5,7 @@ const sidebarStore = useSideBarStore();
 </script>
 
 <template>
-  <header class="bg-white text-gray-900 h-12 flex px-3 items-center pt-3 gap-5">
+  <div class="bg-white text-gray-900 h-12 flex px-3 items-center pt-3 gap-5">
     <div @click="sidebarStore.openSideBar">
       <Bars2Icon class="w-7 stroke-red-600 stroke-2 fill-red-600" />
     </div>
@@ -13,5 +13,5 @@ const sidebarStore = useSideBarStore();
     <div>
       <ShoppingBagIcon class="w-7 fill-red-600" />
     </div>
-  </header>
+  </div>
 </template>
