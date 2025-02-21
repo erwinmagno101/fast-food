@@ -19,7 +19,7 @@ defineOptions({ layout: MainLayout });
   <div class="mb-24">
     <CustomHeader>
       <template #leading>
-        <ion-menu-button></ion-menu-button>
+        <ion-menu-button class="text-red-600"></ion-menu-button>
       </template>
 
       <RoyaltyPoint />
@@ -39,7 +39,7 @@ defineOptions({ layout: MainLayout });
         </div>
       </div>
 
-      <SearchBar />
+      <SearchBar placeholder="try our new Steak Fries Veggies" />
 
       <SectionBlock heading="Special Offers!">
         <template #options>
@@ -73,7 +73,7 @@ defineOptions({ layout: MainLayout });
           <ion-row>
             <ion-col size="6" v-for="i in 4" :key="i">
               <div class="p-1">
-                <FoodItemBlock />
+                <!-- <FoodItemBlock /> -->
               </div>
             </ion-col>
           </ion-row>

@@ -18,3 +18,9 @@ import SideBar from "@/components/Sidebar/SideBar.vue";
     </ion-content>
   </ion-page>
 </template>
+
+<style scoped>
+ion-content::part(scroll) {
+  padding-top: var(--ion-safe-area-top, 0);
+}
+</style>
