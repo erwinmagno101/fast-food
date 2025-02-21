@@ -3,6 +3,21 @@ import {} from "@ionic/vue";
 import { RouterView } from "vue-router";
 import { IonMenu, IonContent, IonPage } from "@ionic/vue";
 import SideBar from "@/components/Sidebar/SideBar.vue";
+import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
+
+const contentRef = ref(null);
+
+const route = useRouter();
+
+watch(
+  () => route,
+  () => {
+    if (contentRef.value) {
+      contentRef.value.scrollToTop(0);
+    }
+  }
+);
 </script>
 
 <template>
@@ -13,7 +28,7 @@ import SideBar from "@/components/Sidebar/SideBar.vue";
   </ion-menu>
 
   <ion-page id="main-content">
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding" ref="contentRef">
       <router-view></router-view>
     </ion-content>
   </ion-page>

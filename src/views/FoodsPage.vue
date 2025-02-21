@@ -1,8 +1,6 @@
 <script setup>
 import CustomHeader from "@/components/CustomHeader.vue";
-import ProfileAvatar from "@/components/ProfileAvatar.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import RoyaltyPoint from "@/components/Sidebar/RoyaltyPoint.vue";
 import {
   IonMenuButton,
   IonSegment,
@@ -14,7 +12,10 @@ import {
   IonRow,
   IonCol,
 } from "@ionic/vue";
-import { AdjustmentsHorizontalIcon } from "@heroicons/vue/24/solid";
+import {
+  AdjustmentsHorizontalIcon,
+  ShoppingBagIcon,
+} from "@heroicons/vue/24/solid";
 import { useFoodStore } from "../composables/foodstore";
 import { onMounted, ref, watch } from "vue";
 import FoodItemBlock from "@/components/FoodItemBlock.vue";
@@ -26,10 +27,6 @@ const categories = foodStore.categories;
 
 const activeTab = ref("All");
 const activeFoods = ref([]);
-
-const setActiveTab = (value) => {
-  activeTab.value = value;
-};
 
 const setActiveItems = (value) => {
   activeFoods.value = null;
@@ -48,17 +45,13 @@ watch(
   }
 );
 
-const onSegmentChange = (e) => {
-  console.log("gg");
-};
-
 onMounted(() => {
   setActiveItems(activeTab.value);
 });
 </script>
 
 <template>
-  <div class="font-bold space-y-10 mb-24">
+  <div class="font-bold space-y-10">
     <CustomHeader>
       <template #leading>
         <ion-menu-button class="text-red-600"></ion-menu-button>
@@ -67,7 +60,7 @@ onMounted(() => {
       Our foods
 
       <template #trailing>
-        <ProfileAvatar class="w-7 h-7" />
+        <ShoppingBagIcon class="w-8 text-red-600" />
       </template>
     </CustomHeader>
 
@@ -83,7 +76,6 @@ onMounted(() => {
           v-model="activeTab"
           :scrollable="true"
           class="remove-scrollbar gap-3"
-          @ionChange="onSegmentChange"
           :swipeGesture="false"
         >
           <ion-segment-button
@@ -106,7 +98,12 @@ onMounted(() => {
           >
             <ion-grid v-if="activeFoods.length !== 0">
               <ion-row>
-                <ion-col size="6" v-for="food in activeFoods" :key="food.id">
+                <ion-col
+                  size="6"
+                  size-sm="auto"
+                  v-for="food in activeFoods"
+                  :key="food.id"
+                >
                   <div class="p-1">
                     <FoodItemBlock :data="food" />
                   </div>

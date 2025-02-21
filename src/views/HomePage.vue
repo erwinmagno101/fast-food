@@ -1,18 +1,37 @@
 <script setup>
 import CategoryBlock from "@/components/CategoryBlock.vue";
-import FoodItemBlock from "@/components/FoodItemBlock.vue";
 import PrimaryBtn from "@/components/PrimaryBtn.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import SectionBlock from "@/components/SectionBlock.vue";
 import VoucherBlock from "@/components/VoucherBlock.vue";
-import MainLayout from "@/layouts/MainLayout.vue";
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import { IonGrid, IonCol, IonMenuButton, IonRow } from "@ionic/vue";
 import CustomHeader from "@/components/CustomHeader.vue";
 import ProfileAvatar from "@/components/ProfileAvatar.vue";
 import RoyaltyPoint from "@/components/Sidebar/RoyaltyPoint.vue";
+import { useFoodStore } from "@/composables/foodstore";
+import FoodItemBlock from "@/components/FoodItemBlock.vue";
+import { onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
-defineOptions({ layout: MainLayout });
+const foodstore = useFoodStore();
+const router = useRouter();
+
+const allfoods = foodstore.foods;
+const displayedFoods = ref(null);
+
+const setDisplayedFoods = () => {
+  const filtered = allfoods.filter((item, index) => index < 4);
+  displayedFoods.value = filtered;
+};
+
+const navigate = (route) => {
+  router.push({ name: route });
+};
+
+onMounted(() => {
+  setDisplayedFoods();
+});
 </script>
 
 <template>
@@ -65,22 +84,32 @@ defineOptions({ layout: MainLayout });
       </SectionBlock>
 
       <SectionBlock heading="What's New?">
-        <div class="w-full h-56 bg-red-600 rounded-2xl"></div>
+        <div class="max-w-[480px] h-56 bg-red-600 rounded-2xl"></div>
       </SectionBlock>
 
       <SectionBlock heading="Most Popular">
         <ion-grid>
           <ion-row>
-            <ion-col size="6" v-for="i in 4" :key="i">
+            <ion-col
+              size="6"
+              size-sm="auto"
+              v-for="food in displayedFoods"
+              :key="food.id"
+            >
               <div class="p-1">
-                <!-- <FoodItemBlock /> -->
+                <FoodItemBlock :key="food.id" :data="food" />
               </div>
             </ion-col>
           </ion-row>
         </ion-grid>
       </SectionBlock>
       <div class="fixed bottom-10 right-5">
-        <PrimaryBtn class="py-5 px-12 w-fit shadow-lg"> Order Now! </PrimaryBtn>
+        <PrimaryBtn
+          class="py-5 px-12 w-fit shadow-lg"
+          @click="navigate('foods')"
+        >
+          Order Now!
+        </PrimaryBtn>
       </div>
     </div>
   </div>

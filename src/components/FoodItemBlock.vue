@@ -8,7 +8,7 @@ defineProps({
 
 <template>
   <div
-    class="h-78 rounded-2xl overflow-hidden bg-gray-200 py-5 px-3 flex flex-col gap-3"
+    class="h-78 w-full sm:w-[240px] max-w-[240px] rounded-2xl overflow-hidden bg-gray-200 py-5 px-3 flex flex-col gap-3"
   >
     <div class="h-[65%]"></div>
     <div class="">
