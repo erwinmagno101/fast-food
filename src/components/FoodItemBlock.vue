@@ -1,5 +1,9 @@
 <script setup>
 import { StarIcon } from "@heroicons/vue/24/solid";
+
+defineProps({
+  data: Object,
+});
 </script>
 
 <template>
@@ -8,11 +12,11 @@ import { StarIcon } from "@heroicons/vue/24/solid";
   >
     <div class="h-[65%]"></div>
     <div class="">
-      <div class="font-bold">Steak Fries Vegies</div>
-      <div class="text-xs text-gray-700 font-thin">Meat</div>
+      <div class="font-bold">{{ data.name }}</div>
+      <div class="text-xs text-gray-700 font-thin">{{ data.category }}</div>
     </div>
     <div class="flex mt-auto justify-between">
-      <div class="text-red-600 font-semibold text-md">P 195</div>
+      <div class="text-red-600 font-semibold text-md">P {{ data.price }}</div>
       <div class="flex gap-[1px]">
         <StarIcon class="w-3 text-yellow-400" v-for="i in 5" :key="i" />
       </div>
