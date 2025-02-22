@@ -1,6 +1,7 @@
 # Fast Food App - Front End Examination
 
-This is an Ionic Vue application built for PRAXXYS It provides a front end and backend (simulated through Pinia State Management).
+This is an Ionic Vue application built for PRAXXYS hiring examination. 
+It has functionalities in both front end and backend (simulated through Pinia State Management).
 
 # Technologies Used
 
@@ -15,7 +16,7 @@ Pinia- 3.0.1 - State Management
 ## Getting Started
 To run the project, follow these steps
 
-For immediate app testing, I includeded a debug apk file located at:
+For immediate app testing, I included a debug apk file located at:
 
 ```sh
 root/debug/fastfood.apk
@@ -37,7 +38,7 @@ npm install
 
 
 # Important Note! :
-This app is develop and tested in __android__ platform and never been tested in __ios__ platform
+This app is developed and tested in __android__ platform and never been tested in __ios__ platform
 if you intend to run and test it on web, you should test it using developer tools in the browser , do:
 ```sh
 ctrl + shift + i then,
