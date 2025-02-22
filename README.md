@@ -38,7 +38,7 @@ npm install
 
 
 # Important Note! :
-This app is develop and tested in __android__ platform and never been tested in __ios__ platform
+This app is developed and tested in __android__ platform and never been tested in __ios__ platform
 if you intend to run and test it on web, you should test it using developer tools in the browser , do:
 ```sh
 ctrl + shift + i then,
