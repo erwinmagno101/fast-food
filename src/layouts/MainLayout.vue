@@ -1,7 +1,7 @@
 <script setup>
 import {} from "@ionic/vue";
 import { IonMenu, IonContent, IonPage, IonRouterOutlet } from "@ionic/vue";
-import SideBar from "@/components/Sidebar/SideBar.vue";
+import SideBar from "@/components/sidebar/SideBar.vue";
 import { ref, watch } from "vue";
 
 const contentRef = ref(null);
