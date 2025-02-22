@@ -53,9 +53,14 @@ ionic serve
 
 ## Run on Moile Device (Connected via Usb with usb debugging enabled)
 ```sh
-ionic build
-ionic serve
+npx cap add android
+npm run build
+npx cap sync android
+npx cap run android
 ```
+
+And that's it, I hope you find this interesting. Good speed!!
+
 
 
 
