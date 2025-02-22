@@ -1,6 +1,7 @@
 # Fast Food App - Front End Examination
 
-This is an Ionic Vue application built for PRAXXYS It provides a front end and backend (simulated through Pinia State Management).
+This is an Ionic Vue application built for PRAXXYS hiring examination. 
+It has functionalities in both front end and backend (simulated through Pinia State Management).
 
 # Technologies Used
 
