@@ -13,8 +13,8 @@ const props = defineProps({
 
 const navigate = () => {
   if (!props.data.route) return;
-  router.replace({ name: props.data.route });
   sidebarstore.setNavOpenTitle(props.data.title);
+  router.replace({ name: props.data.route });
   menuController.close();
 };
 </script>
@@ -30,7 +30,9 @@ const navigate = () => {
           : 'text-gray-300',
       ]"
     />
-    <div class="flex-1 font-medium">{{ data.title }}</div>
+    <div class="flex-1 font-medium">
+      {{ data.title }}
+    </div>
     <div
       v-if="data.badgeCount"
       class="rounded-full bg-yellow-500 px-1 w-5 h-5 flex justify-center items-center text-white text-xs"

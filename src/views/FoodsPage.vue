@@ -70,13 +70,14 @@ onMounted(() => {
         </CustomHeader>
 
         <div class="space-y-5">
-          <SearchBar placeholder="try our new Beef Bibimbowl">
+          <SearchBar placeholder="Try our new Beef Bibimbowl">
             <template #trailing>
               <AdjustmentsHorizontalIcon />
             </template>
           </SearchBar>
 
           <div class="space-y-5">
+            <!-- Fix: ion-segment should be properly styled -->
             <ion-segment
               v-model="activeTab"
               :scrollable="true"
@@ -84,10 +85,10 @@ onMounted(() => {
               :swipeGesture="false"
             >
               <ion-segment-button
-                class="py-0 border-full"
                 v-for="(value, index) in categories"
                 :key="index"
                 :value="value"
+                class="py-0 border-full"
               >
                 <ion-label>
                   <div>{{ value === "Meat" ? "Breakfast" : value }}</div>
@@ -95,12 +96,9 @@ onMounted(() => {
               </ion-segment-button>
             </ion-segment>
 
-            <ion-segment-view>
-              <ion-segment-content
-                v-for="(value, index) in categories"
-                :key="index"
-                :id="value"
-              >
+            <!-- Fix: Use v-if instead of ion-segment-content -->
+            <div v-for="(value, index) in categories" :key="index">
+              <div v-if="activeTab === value">
                 <ion-grid>
                   <ion-row v-auto-animate>
                     <ion-col
@@ -115,8 +113,8 @@ onMounted(() => {
                     </ion-col>
                   </ion-row>
                 </ion-grid>
-              </ion-segment-content>
-            </ion-segment-view>
+              </div>
+            </div>
           </div>
         </div>
       </div>

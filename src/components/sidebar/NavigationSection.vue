@@ -19,7 +19,7 @@ const navAppData = [
     icon: HomeIcon,
     route: "home",
     badgeCount: null,
-    isActive: true,
+    isActive: false,
   },
   {
     title: "Order Now!",
