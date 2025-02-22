@@ -13,7 +13,7 @@ const props = defineProps({
 
 const navigate = () => {
   if (!props.data.route) return;
-  router.push({ name: props.data.route });
+  router.replace({ name: props.data.route });
   sidebarstore.setNavOpenTitle(props.data.title);
   menuController.close();
 };
