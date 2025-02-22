@@ -9,6 +9,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 175,
+      points: 20,
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 172,
+      points: 15,
     },
     {
       id: 3,
@@ -27,6 +29,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 185,
+      points: 25,
     },
     {
       id: 4,
@@ -36,6 +39,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 175,
+      points: 15,
     },
     {
       id: 5,
@@ -45,6 +49,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 175,
+      points: 15,
     },
     {
       id: 6,
@@ -54,6 +59,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 175,
+      points: 15,
     },
 
     {
@@ -64,6 +70,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 185,
+      points: 25,
     },
     {
       id: 8,
@@ -73,6 +80,7 @@ export const useFoodStore = defineStore("foodstore", () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores illum soluta sed culpa repellat dolor, laborum odit aliquam facilis inventore. Iure similique nemo laudantium quo dolores? Deserunt dolorum atque error!",
       price: 175,
+      points: 15,
     },
   ];
 

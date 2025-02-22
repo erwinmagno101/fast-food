@@ -4,7 +4,8 @@ import { onMounted, onUnmounted, ref, watch } from "vue";
 const componentRef = ref(null);
 import { defineModel } from "vue";
 
-const price = defineModel();
+const itemSelected = defineModel();
+const price = ref(0);
 
 const items = [
   { name: "Coke", price: 25 },
@@ -18,7 +19,8 @@ const isOpen = ref(false);
 watch(
   () => selected.value,
   (newVal) => {
-    price.value = items[selected.value].price;
+    price.value = items[newVal].price;
+    itemSelected.value = items[newVal];
   }
 );
 
@@ -40,6 +42,7 @@ watch(
 );
 
 onMounted(() => {
+  itemSelected.value = items[0];
   price.value = items[selected.value].price;
 });
 

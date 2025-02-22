@@ -14,24 +14,47 @@ import { onMounted, ref, watch } from "vue";
 import SectionBlock from "@/components/ui/SectionBlock.vue";
 import SelectBlock from "@/components/blocks/SelectBlock.vue";
 import PrimaryBtn from "@/components/ui/PrimaryBtn.vue";
-import FoodItemBlockHorizontal from "@/components/blocks/FoodItemBlockHorizontal.vue";
+import AddOnBlock from "@/components/blocks/AddOnBlock.vue";
 
 const orderstore = useOrderStore();
 
 const item = ref(orderstore.currentOrder);
 
 const count = ref(1);
+
 const amount = ref(item.value.price);
 
-const beverageCost = ref(0);
+const beverageOrder = ref({});
+const addOnOrder = ref([]);
 
 const sizes = ["Regular", "Large", "X-Large"];
+
+const setOrderInfo = () => {
+  const orderInfo = {
+    item: {
+      count: count.value,
+      data: item.value,
+    },
+    beverage: {
+      data: beverageOrder.value,
+    },
+    addOn: {
+      items: addOnOrder.value,
+    },
+  };
+
+  orderstore.setCurrentOrderInfo(orderInfo);
+  console.log(orderInfo);
+};
+
+const gotoCheckout = () => {
+  setOrderInfo();
+};
 
 watch(
   () => count.value,
   (newVal) => {
     amount.value = item.value.price * newVal;
-    console.log(newVal);
   }
 );
 
@@ -92,7 +115,7 @@ onMounted(() => {});
         </div>
 
         <SectionBlock heading="Beverages">
-          <SelectBlock v-model="beverageCost" />
+          <SelectBlock v-model="beverageOrder" />
         </SectionBlock>
 
         <div class="flex gap-2 w-full">
@@ -111,10 +134,22 @@ onMounted(() => {});
         </div>
 
         <SectionBlock heading="Add-Ons" class="mt-5">
-          <FoodItemBlockHorizontal />
+          <div class="space-y-3">
+            <AddOnBlock
+              :data="{ name: 'Tomato Sauce', category: 'Sauce', price: 49 }"
+              v-model="addOnOrder"
+            />
+            <AddOnBlock
+              :data="{ name: 'White Rice', category: 'Rice', price: 25 }"
+              v-model="addOnOrder"
+            />
+          </div>
         </SectionBlock>
 
-        <div class="fixed bottom-5 left-[50%] translate-x-[-50%] w-full px-5">
+        <div
+          class="fixed bottom-5 left-[50%] translate-x-[-50%] w-full px-5"
+          @click="gotoCheckout"
+        >
           <PrimaryBtn class="py-5">Add to Bag</PrimaryBtn>
         </div>
       </div>

@@ -1,5 +1,8 @@
-<script setup></script>
-
+<script setup>
+defineProps({
+  data: Object,
+});
+</script>
 <template>
   <div class="flex bg-gray-200 rounded-2xl gap-5 px-5 py-3">
     <div class="w-24 bg-red-500 h-20"></div>
