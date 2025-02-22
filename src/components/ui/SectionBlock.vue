@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="space-y-3">
+  <section class="space-y-3 relative">
     <div class="flex flex-row justify-between items-end">
       <div class="text-2xl font-semibold">{{ heading }}</div>
       <div>
