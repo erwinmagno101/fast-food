@@ -40,5 +40,22 @@ npm install
 This app is develop and tested in __android__ platform and never been tested in __ios__ platform
 if you intend to run and test it on web, you should test it using developer tools in the browser , do:
 ```sh
-ctrl + shift + i
+ctrl + shift + i then,
+ctrl + shift + m
 ```
+to enable device toolbar and select a device.
+
+## Run on Web
+```sh
+ionic build
+ionic serve
+```
+
+## Run on Moile Device (Connected via Usb with usb debugging enabled)
+```sh
+ionic build
+ionic serve
+```
+
+
+
