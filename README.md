@@ -5,7 +5,7 @@ This is an Ionic Vue application built for PRAXXYS It provides a front end and b
 ## Getting Started
 To run the project, follow these steps
 
-For immediate app testing, I includded a production apk file located at:
+For immediate app testing, I included a production apk file located at:
 
 ```sh
 root/prod/foodapp.apk
@@ -15,7 +15,7 @@ root/prod/foodapp.apk
 
 Clone the repository:
 ```sh
-git clone https://github.com/your-repo.git
+git clone https://github.com/erwinmagno101/fast-food
 ```
 
 Install all dependencies
