@@ -93,7 +93,6 @@ const tier = ["All", "Beginner", "Intermediate", "Loyal"];
               {{ val }}
             </div>
           </div>
-
           <PointBlock />
         </SectionBlock>
       </div>
