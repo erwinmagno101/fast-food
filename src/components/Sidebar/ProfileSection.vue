@@ -1,13 +1,18 @@
 <script setup>
-import ProfileAvatar from "../ProfileAvatar.vue";
+import ProfileAvatar from "../ui/ProfileAvatar.vue";
 import RoyaltyPoint from "./RoyaltyPoint.vue";
+import { IonMenuToggle } from "@ionic/vue";
 </script>
 
 <template>
   <div>
-    <div class="flex gap-5 mb-2">
+    <div class="flex gap-5 mb-2 items-center">
       <ProfileAvatar class="w-18 h-18" />
-      <RoyaltyPoint />
+      <div class="flex-1">
+        <ion-menu-toggle>
+          <RoyaltyPoint />
+        </ion-menu-toggle>
+      </div>
     </div>
     <div>
       <div class="text-3xl font-medium">Chou Tzuyu</div>
