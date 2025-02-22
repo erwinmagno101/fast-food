@@ -1,9 +1,16 @@
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const navigate = () => {
+  router.push({ name: "royalty" });
+};
 </script>
 
 <template>
-  <div class="flex flex-1 justify-center items-center gap-7">
+  <div class="flex flex-1 justify-center items-center gap-7" @click="navigate">
     <svg
       height="32px"
       width="32px"
