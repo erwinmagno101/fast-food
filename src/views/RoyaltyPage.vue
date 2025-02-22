@@ -4,7 +4,7 @@ import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 
 import CustomHeader from "@/components/ui/CustomHeader.vue";
 import SectionBlock from "@/components/ui/SectionBlock.vue";
-import PointBlock from "@/components/blocks/PointBlock.vue";
+import FoodItemBlockHorizontal from "@/components/blocks/FoodItemBlockHorizontal.vue";
 
 const tier = ["All", "Beginner", "Intermediate", "Loyal"];
 </script>
@@ -93,7 +93,7 @@ const tier = ["All", "Beginner", "Intermediate", "Loyal"];
               {{ val }}
             </div>
           </div>
-          <PointBlock />
+          <FoodItemBlockHorizontal />
         </SectionBlock>
       </div>
     </ion-content>
