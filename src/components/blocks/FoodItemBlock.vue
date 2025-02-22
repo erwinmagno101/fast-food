@@ -1,14 +1,26 @@
 <script setup>
 import { StarIcon } from "@heroicons/vue/24/solid";
+import { useRouter } from "vue-router";
+import { useOrderStore } from "../../composables/orderstore";
 
-defineProps({
+const orderstore = useOrderStore();
+
+const props = defineProps({
   data: Object,
 });
+
+const router = useRouter();
+
+const gotoOrder = () => {
+  orderstore.currentOrder = props.data;
+  router.push({ name: "order" });
+};
 </script>
 
 <template>
   <div
-    class="h-78 w-full sm:w-[240px] max-w-[240px] rounded-2xl overflow-hidden bg-gray-200 py-5 px-3 flex flex-col gap-3"
+    class="h-78 w-full sm:w-[240px] max-w-[240px] rounded-2xl overflow-hidden bg-gray-200 py-5 px-3 flex flex-col gap-3 pointer-events-auto"
+    @click="gotoOrder"
   >
     <div class="h-[65%]"></div>
     <div class="">
