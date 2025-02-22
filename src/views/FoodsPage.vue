@@ -1,6 +1,6 @@
 <script setup>
-import CustomHeader from "@/components/CustomHeader.vue";
-import SearchBar from "@/components/SearchBar.vue";
+import CustomHeader from "@/components/ui/CustomHeader.vue";
+import SearchBar from "@/components/ui/SearchBar.vue";
 import {
   IonMenuButton,
   IonSegment,
@@ -11,6 +11,8 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonPage,
+  IonContent,
 } from "@ionic/vue";
 import {
   AdjustmentsHorizontalIcon,
@@ -18,7 +20,8 @@ import {
 } from "@heroicons/vue/24/solid";
 import { useFoodStore } from "../composables/foodstore";
 import { onMounted, ref, watch } from "vue";
-import FoodItemBlock from "@/components/FoodItemBlock.vue";
+import FoodItemBlock from "@/components/blocks/FoodItemBlock.vue";
+import { vAutoAnimate } from "@formkit/auto-animate";
 
 const foodStore = useFoodStore();
 
@@ -51,73 +54,74 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="font-bold space-y-10">
-    <CustomHeader>
-      <template #leading>
-        <ion-menu-button class="text-red-600"></ion-menu-button>
-      </template>
+  <ion-page>
+    <ion-content class="ion-padding">
+      <div class="space-y-10">
+        <CustomHeader>
+          <template #leading>
+            <ion-menu-button class="text-red-600"></ion-menu-button>
+          </template>
 
-      Our foods
+          Our foods
 
-      <template #trailing>
-        <ShoppingBagIcon class="w-8 text-red-600" />
-      </template>
-    </CustomHeader>
+          <template #trailing>
+            <ShoppingBagIcon class="w-8 text-red-600" />
+          </template>
+        </CustomHeader>
 
-    <div class="space-y-5">
-      <SearchBar placeholder="try our new Beef Bibimbowl">
-        <template #trailing>
-          <AdjustmentsHorizontalIcon />
-        </template>
-      </SearchBar>
+        <div class="space-y-5">
+          <SearchBar placeholder="try our new Beef Bibimbowl">
+            <template #trailing>
+              <AdjustmentsHorizontalIcon />
+            </template>
+          </SearchBar>
 
-      <div class="space-y-5">
-        <ion-segment
-          v-model="activeTab"
-          :scrollable="true"
-          class="remove-scrollbar gap-3"
-          :swipeGesture="false"
-        >
-          <ion-segment-button
-            class="py-0 border-full"
-            v-for="(value, index) in categories"
-            :key="index"
-            :value="value"
-          >
-            <ion-label>
-              <div>{{ value === "Meat" ? "Breakfast" : value }}</div>
-            </ion-label>
-          </ion-segment-button>
-        </ion-segment>
+          <div class="space-y-5">
+            <ion-segment
+              v-model="activeTab"
+              :scrollable="true"
+              class="remove-scrollbar gap-3"
+              :swipeGesture="false"
+            >
+              <ion-segment-button
+                class="py-0 border-full"
+                v-for="(value, index) in categories"
+                :key="index"
+                :value="value"
+              >
+                <ion-label>
+                  <div>{{ value === "Meat" ? "Breakfast" : value }}</div>
+                </ion-label>
+              </ion-segment-button>
+            </ion-segment>
 
-        <ion-segment-view>
-          <ion-segment-content
-            v-for="(value, index) in categories"
-            :key="index"
-            :id="value"
-          >
-            <ion-grid v-if="activeFoods.length !== 0">
-              <ion-row>
-                <ion-col
-                  size="6"
-                  size-sm="auto"
-                  v-for="food in activeFoods"
-                  :key="food.id"
-                >
-                  <div class="p-1">
-                    <FoodItemBlock :data="food" />
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-            <div v-else class="flex justify-center items-center">
-              No Food Avalilable
-            </div>
-          </ion-segment-content>
-        </ion-segment-view>
+            <ion-segment-view>
+              <ion-segment-content
+                v-for="(value, index) in categories"
+                :key="index"
+                :id="value"
+              >
+                <ion-grid>
+                  <ion-row v-auto-animate>
+                    <ion-col
+                      size="6"
+                      size-sm="auto"
+                      v-for="food in activeFoods"
+                      :key="food.id"
+                    >
+                      <div class="p-1">
+                        <FoodItemBlock :data="food" />
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-segment-content>
+            </ion-segment-view>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <style scoped>
@@ -157,5 +161,9 @@ ion-segment-view {
 
 .remove-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+ion-content::part(scroll) {
+  padding-top: var(--ion-safe-area-top, 0);
 }
 </style>
