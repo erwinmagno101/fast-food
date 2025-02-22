@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-  <div class="flex items-center bg-gray-200 rounded-2xl gap-5 p-5">
-    <div class="w-24 bg-red-500 h-24"></div>
-    <div class="flex flex-col">
+  <div class="flex bg-gray-200 rounded-2xl gap-5 px-5 py-3">
+    <div class="w-24 bg-red-500 h-20"></div>
+    <div class="flex flex-col h-20">
       <div class="font-semibold">Steak Fries Veggies</div>
       <div class="text-xs text-gray-500 mb-3">Meat</div>
       <div class="flex text-red-600 font-bold gap-3 items-end mt-auto">
