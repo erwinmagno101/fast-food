@@ -77,7 +77,6 @@ onMounted(() => {
           </SearchBar>
 
           <div class="space-y-5">
-            <!-- Fix: ion-segment should be properly styled -->
             <ion-segment
               v-model="activeTab"
               :scrollable="true"
@@ -96,7 +95,6 @@ onMounted(() => {
               </ion-segment-button>
             </ion-segment>
 
-            <!-- Fix: Use v-if instead of ion-segment-content -->
             <div v-for="(value, index) in categories" :key="index">
               <div v-if="activeTab === value">
                 <ion-grid>
