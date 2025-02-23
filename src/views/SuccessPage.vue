@@ -103,14 +103,14 @@ onUnmounted(() => {
         </div>
 
         <div class="mt-auto w-full">
-          <PrimaryBtn
-            class="py-5 text-sm font-bold"
-            @click="() => router.replace({ name: 'home' })"
-          >
-            Track Order
-          </PrimaryBtn>
+          <PrimaryBtn class="py-5 text-sm font-bold"> Track Order </PrimaryBtn>
           <PrimaryBtn class="py-5 text-sm bg-white">
-            <div class="text-red-600 text-sm font-bold">Back to Home</div>
+            <div
+              class="text-red-600 text-sm font-bold"
+              @click="() => router.replace({ name: 'home' })"
+            >
+              Back to Home
+            </div>
           </PrimaryBtn>
         </div>
       </div>

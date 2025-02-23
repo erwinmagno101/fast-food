@@ -9,14 +9,14 @@ import {
 } from "@heroicons/vue/24/solid";
 import SectionBlock from "@/components/ui/SectionBlock.vue";
 import { useOrderStore } from "../composables/orderstore";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import PrimaryBtn from "@/components/ui/PrimaryBtn.vue";
 import { useRouter } from "vue-router";
 
 const orderstore = useOrderStore();
 const router = useRouter();
 
-const order = orderstore.currentOrderInfo;
+let order = orderstore.currentOrderInfo;
 
 const info = {
   name: "Chou Tzuyu",
@@ -40,6 +40,14 @@ const getTotal = () => {
   subTotal.value = (order.item.data.price + addOnTotal) * order.item.count;
   total.value = subTotal.value + 59;
 };
+
+watch(
+  () => orderstore.currentOrderInfo,
+  (newVal) => {
+    order = newVal;
+    console.log(newVal);
+  }
+);
 
 const placeOrder = () => {
   orderstore.addToOrder(order);
@@ -114,7 +122,9 @@ const shippingAddresses = [
           <div class="flex w-full">
             <div class="bg-gray-200 p-5 rounded-2xl flex-1 space-y-3">
               <div class="flex items-center gap-5">
-                <div class="w-16 h-16 bg-red-600"></div>
+                <div class="w-16 h-16 flex items-center justify-center">
+                  <img src="../assets/images/Food.webp" alt="" />
+                </div>
                 <div>
                   <div class="font-bold text-sm mb-3">
                     {{ order.item.data.name }}

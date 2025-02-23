@@ -5,10 +5,14 @@ defineProps({
 </script>
 <template>
   <div class="flex bg-gray-200 rounded-2xl gap-5 px-5 py-3">
-    <div class="w-24 bg-red-500 h-20"></div>
+    <div class="w-24 flex justify-center items-center h-20">
+      <img src="../../assets/images/Food.webp" alt="" />
+    </div>
     <div class="flex flex-col h-20">
-      <div class="font-semibold">Steak Fries Veggies</div>
-      <div class="text-xs text-gray-500 mb-3">Meat</div>
+      <div class="font-semibold">{{ data.item.data.name }}</div>
+      <div class="text-xs text-gray-500 mb-3">
+        {{ data.item.data.category }}
+      </div>
       <div class="flex text-red-600 font-bold gap-3 items-end mt-auto">
         <svg
           height="24px"
@@ -38,7 +42,7 @@ defineProps({
             ></path>
           </g>
         </svg>
-        <div>20 points</div>
+        <div>{{ data.item.data.points }} points</div>
       </div>
     </div>
   </div>

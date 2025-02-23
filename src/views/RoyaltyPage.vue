@@ -5,6 +5,11 @@ import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import CustomHeader from "@/components/ui/CustomHeader.vue";
 import SectionBlock from "@/components/ui/SectionBlock.vue";
 import FoodItemBlockHorizontal from "@/components/blocks/FoodItemBlockHorizontal.vue";
+import { useOrderStore } from "../composables/orderstore";
+
+const orderstore = useOrderStore();
+
+console.log(orderstore.allOrders);
 
 const tier = ["All", "Beginner", "Intermediate", "Loyal"];
 </script>
@@ -93,7 +98,13 @@ const tier = ["All", "Beginner", "Intermediate", "Loyal"];
               {{ val }}
             </div>
           </div>
-          <FoodItemBlockHorizontal />
+          <div class="space-y-3">
+            <FoodItemBlockHorizontal
+              v-for="data in orderstore.allOrders"
+              :data="data"
+              :key="data"
+            />
+          </div>
         </SectionBlock>
       </div>
     </ion-content>

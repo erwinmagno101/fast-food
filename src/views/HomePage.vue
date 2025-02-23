@@ -92,7 +92,11 @@ onMounted(() => {
         </SectionBlock>
 
         <SectionBlock heading="What's New?">
-          <div class="max-w-[480px] h-56 bg-red-600 rounded-2xl"></div>
+          <div
+            class="max-w-[480px] h-56 bg-red-600 rounded-2xl overflow-hidden"
+          >
+            <img src="../assets/images/New.webp" class="w-full h-full" alt="" />
+          </div>
         </SectionBlock>
 
         <SectionBlock heading="Most Popular">

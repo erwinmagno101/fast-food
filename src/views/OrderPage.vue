@@ -52,6 +52,13 @@ const setOrderInfo = () => {
   orderstore.setCurrentOrderInfo(orderInfo);
 };
 
+watch(
+  () => orderstore.currentOrder,
+  (newVal) => {
+    item.value = newVal;
+  }
+);
+
 const confirmOrder = () => {
   setOrderInfo();
   modalIsOpen.value = true;
@@ -91,6 +98,11 @@ onMounted(() => {});
         </CustomHeader>
 
         <div class="w-full h-64 bg-gray-200 rounded-2xl relative">
+          <div
+            class="w-full h-full absolute top-0 left-0 flex items-center justify-center"
+          >
+            <img src="../assets/images/Food.webp" class="w-[70%]" alt="" />
+          </div>
           <div
             class="p-2 bg-white rounded-2xl w-fit shadow-md absolute right-0 bottom-0 translate-x-[-50%] translate-y-[50%]"
           >

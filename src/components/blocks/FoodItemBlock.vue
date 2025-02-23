@@ -22,7 +22,9 @@ const gotoOrder = () => {
     class="h-78 w-full sm:w-[240px] max-w-[240px] rounded-2xl overflow-hidden bg-gray-200 py-5 px-3 flex flex-col gap-3 pointer-events-auto"
     @click="gotoOrder"
   >
-    <div class="h-[65%]"></div>
+    <div class="h-[65%] flex justify-center items-center">
+      <img src="../../assets/images/Food.webp" alt="" />
+    </div>
     <div class="">
       <div class="font-bold">{{ data.name }}</div>
       <div class="text-xs text-gray-700 font-thin">{{ data.category }}</div>

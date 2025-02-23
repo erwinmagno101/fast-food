@@ -34,7 +34,9 @@ watch(
 </script>
 <template>
   <div class="flex bg-gray-200 rounded-2xl gap-5 px-5 py-3">
-    <div class="w-24 h-20 bg-red-500"></div>
+    <div class="w-24 h-20 flex items-center justify-center">
+      <img src="../../assets/images/Food.webp" alt="" />
+    </div>
     <div class="flex flex-col w-full">
       <div class="flex justify-bewteen items-start w-full">
         <div class="flex-1">
