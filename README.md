@@ -19,7 +19,7 @@ To run the project, follow these steps
 For immediate app testing, I included a debug apk file located at:
 
 ```sh
-root/debug/fastfood.apk
+root/debug/fast-food-app.apk
 ```
 
 ### Installation
