@@ -9,8 +9,6 @@ import { useOrderStore } from "../composables/orderstore";
 
 const orderstore = useOrderStore();
 
-console.log(orderstore.allOrders);
-
 const tier = ["All", "Beginner", "Intermediate", "Loyal"];
 </script>
 
@@ -84,7 +82,7 @@ const tier = ["All", "Beginner", "Intermediate", "Loyal"];
             </div>
           </template>
 
-          <div class="flex gap-2 mb-5">
+          <div class="flex gap-2 mb-5 overflow-scroll remove-scrollbar">
             <div
               v-for="(val, index) in tier"
               :key="index"
@@ -114,5 +112,9 @@ const tier = ["All", "Beginner", "Intermediate", "Loyal"];
 <style scoped>
 ion-content::part(scroll) {
   padding-top: var(--ion-safe-area-top, 0);
+}
+
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 </style>
